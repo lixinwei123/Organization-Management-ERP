@@ -1,9 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
+<ion-content padding class = "background-photo">
+ <img src="../../assets/images/logo.png"/>
+  <ion-card class = "login-card" >
+     <p> Click <a style = "color:#45e437;" (click) = "goToRegister(true)"><u><b>here</b></u></a>  to register as a manager for a new task team</p>
+    <p> Click <a style = "color:#45e437;" (click) = "goToRegister(false)"><u><b>here</b></u></a> to register as a worker for your task team</p>
+    <ion-item class = "background-primary">
+    <ion-label position = "floating">Email Address</ion-label>
+    <ion-input type="text" [(ngModel)] = "email"></ion-input>
+    </ion-item>
+    <ion-item style = "margin-bottom:3rem;" class = "background-primary">
+    <ion-label position = "floating" >Password</ion-label>
+    <ion-input type="password" [(ngModel)] = "password"></ion-input>
+    </ion-item>
+    <div style = "text-align:center;margin-bottom:3rem;">
+      <ion-button color = "secondary" (click) = "login()" class = ""> <span style = "color:black">login </span></ion-button>
+    </div> 
+  </ion-card>
+  <!-- <ion-spinner name="lines"></ion-spinner> -->
 </ion-content>

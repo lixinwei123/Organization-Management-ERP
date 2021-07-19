@@ -1,0 +1,32 @@
+.login-card{
+    // width:50vw;
+    margin:auto;
+    // margin-top:13vh;
+    opacity: 0.9;
+    border-radius: 0px;
+    background: #202124;
+    color:white;
+    p{
+        padding-left:1rem;
+        margin-top: 1.8rem;
+        a{
+            
+        }
+    }
+}
+ .login-header{
+     text-align:center;
+     margin-top:5rem !important;
+     color:white;
+ // 	opacity:0.8;
+    // background-color:black;
+ }
+
+ion-content{
+--background: black;
+}
+
+.background-primary {
+--background: #202124;
+color:white;
+}
