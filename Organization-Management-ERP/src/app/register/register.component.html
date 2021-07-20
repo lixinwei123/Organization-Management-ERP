@@ -2,6 +2,7 @@
 	
   <ion-button  icon-only (click) = "closeModal();" class = "close-button" ><ion-icon name = "close" color = "secondary"></ion-icon></ion-button>
     <h1 style = "color:white !important" >Registration</h1>
+    <ion-card id = "registration-card">
     <div class = "input-information">
       <ion-item class = "dark-background">
       <ion-label position = "floating">Email Address</ion-label>
@@ -43,4 +44,5 @@
       <div class = "next-step">		
         <ion-button color = "secondary" (click) = "finishRegistration()"><span style = "color:black">Finish Registration</span></ion-button>
       </div>
+      </ion-card>
   </ion-content>

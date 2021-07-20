@@ -19,7 +19,7 @@ float:right;
 }
 .input-information{
 ion-item{
-    background-color: transparent;
+    --background: #3c4042;
 }
 ion-input{
     color:black;
@@ -35,6 +35,14 @@ button{
 }
 
 .dark-background{
-    --background: #3c4042 !important;
+    --background: black;
     color:white
+}
+#registration-card{
+    border: none;
+    margin: none;
+    margin: 0;
+    padding-bottom: 1rem;
+    margin-top: 2rem;
+    --background: #3c4042;
 }
