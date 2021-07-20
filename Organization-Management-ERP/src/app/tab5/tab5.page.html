@@ -5,7 +5,37 @@
     </ion-button>
   </ion-toolbar>
 </ion-header>
+ 
+<ion-content class ="dark-background">
+  <div class = "input-information"> 
+    <h1 style = "color:white !important" >Employee Profile</h1>
+    <ion-list> 
+      
+      <!-- <ion-list-header class ="dark-background">
+        Employee Profile
+      </ion-list-header> -->
+      
+      <ion-item class = "dark-background">
+        <ion-label>
+          <h2>First Name</h2>
+          <h3>{{usrData.firstname}}</h3>
+        </ion-label>
+      </ion-item>
+      
+      <ion-item class = "dark-background">
+        <ion-label>
+          <h2>Last Name</h2>
+          <h3>{{usrData.lastname}}</h3>
+        </ion-label>
+      </ion-item>
+      
+      <ion-item class = "dark-background">
+        <ion-label>
+          <h2>Email Address</h2>
+          <h3>{{usrData.email}}</h3>
+        </ion-label>
+      </ion-item>
 
-<ion-content>
-
+    </ion-list>
+  </div>
 </ion-content>
