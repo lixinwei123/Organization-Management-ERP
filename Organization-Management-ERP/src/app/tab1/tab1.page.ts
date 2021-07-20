@@ -9,7 +9,7 @@ import { UserInfoService } from '../user-info.service';
 export class Tab1Page {
   usrData : any;
   constructor(public uInfo: UserInfoService) {
-    this.loadUserInfo()
+   
   }
 
 
@@ -22,10 +22,14 @@ export class Tab1Page {
     }else{
       this.uInfo.$usrData.subscribe({
         next(data){
+          this.usrData = data;
           console.log(data)
         }
       })
     }
   }
 
+  ngOnInit(){
+    this.loadUserInfo()
+  }
 }
