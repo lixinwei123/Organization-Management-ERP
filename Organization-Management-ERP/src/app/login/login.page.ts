@@ -38,16 +38,13 @@ export class LoginPage implements OnInit {
    return await regModal.present();
   }
   
+
   async login(){
     try{
           this.afAuth.signInWithEmailAndPassword(this.email,this.password).then(res =>{
           console.log("Logged in ha",res.user);
           this.uInfo.setUserInfo(res.user.uid);
-          this.uInfo.usrId = res.user.uid
           let navigationExtras: NavigationExtras = {
-            queryParams: {
-              "uid": this.uInfo.usrId
-            }
           };
         if(res.user.uid){
           this.router.navigateByUrl('/tabs/tab1',navigationExtras)
