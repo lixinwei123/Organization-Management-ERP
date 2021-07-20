@@ -1,0 +1,47 @@
+<ion-content class ="dark-background">
+	
+  <ion-button  icon-only (click) = "closeModal();" class = "close-button" ><ion-icon name = "close" color = "secondary"></ion-icon></ion-button>
+    <h1 style = "color:white !important" >Create New Task</h1>
+    <ion-card id = "registration-card">
+    <div class = "input-information">
+      <ion-item class = "dark-background">
+      <ion-label position = "floating">Task Name</ion-label>
+      <ion-input type="text" [(ngModel)] = "taskName"></ion-input>
+      </ion-item>
+      <ion-item class = "dark-background">
+      <ion-datetime displayFormat = "MMM DD, YYYY, HH:mm" placeholder= "Deadline" display-timezone="utc" [(ngModel)] = "deadline" ></ion-datetime>
+      </ion-item>
+      <ion-item class = "dark-background">
+      <ion-label position = "floating" >Priority</ion-label>
+      <ion-input type="password"[(ngModel)] = "password" ></ion-input>
+      </ion-item >
+        <ion-item class = "dark-background">
+      <ion-label position = "floating" >Confirm Password</ion-label>
+      <ion-input type="password" [(ngModel)] = "passwordC"></ion-input>
+      </ion-item >
+      <ion-item class = "dark-background">
+      <ion-label position = "floating">First Name</ion-label>
+      <ion-input type="text" [(ngModel)] = "firstname"></ion-input>
+      </ion-item >
+      <ion-item class = "dark-background">
+      <ion-label position = "floating">Last Name</ion-label>
+      <ion-input type="text" [(ngModel)] = "lastname"></ion-input>
+      </ion-item>
+      <div >
+      <ion-item class = "dark-background" *ngIf="isManager == true">
+      <ion-label position = "floating">Organization Name</ion-label>
+      <ion-input type="text" [(ngModel)] = "organizationName"></ion-input>
+      </ion-item>
+      </div>
+      <div >
+      <ion-item class = "dark-background" *ngIf="isManager == false" >
+      <ion-label position = "floating">Organization Id</ion-label>
+      <ion-input type="text" [(ngModel)] = "organizationId"></ion-input>
+      </ion-item>
+      </div>
+    </div>
+      <div class = "next-step">		
+        <ion-button color = "secondary" (click) = "finishRegistration()"><span style = "color:black">Finish Registration</span></ion-button>
+      </div>
+      </ion-card>
+  </ion-content>
