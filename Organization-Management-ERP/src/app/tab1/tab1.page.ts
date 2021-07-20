@@ -7,9 +7,25 @@ import { UserInfoService } from '../user-info.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page {
-
+  usrData : any;
   constructor(public uInfo: UserInfoService) {
-    console.log(this.uInfo.getUserInfo())
+    this.loadUserInfo()
+  }
+
+
+  loadUserInfo(){
+    this.usrData =  this.uInfo.$usrData
+    if(this.uInfo.$usrData == undefined){
+      setTimeout(() => {
+        this.loadUserInfo()
+      }, 1000);
+    }else{
+      this.uInfo.$usrData.subscribe({
+        next(data){
+          console.log(data)
+        }
+      })
+    }
   }
 
 }
