@@ -18,7 +18,6 @@ export class AppComponent {
       this.afAuth.onAuthStateChanged(user =>{
         if(user){
           this.uInfo.setUserInfo(user)
-          this.uInfo.setUserAlerts()
           this.loadUserInfo()
         }else{
           this.router.navigateByUrl('/login')

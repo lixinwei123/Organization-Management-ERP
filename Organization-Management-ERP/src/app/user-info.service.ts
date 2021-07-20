@@ -24,13 +24,12 @@ public hasCorona: boolean = false;
      console.log("setting user",user)
     this.$usrData = new Observable((observer) =>{
       this.afData.database.ref('users/' + user.uid).on('value',dataSnap =>{
-        // this.usrData = dataSnap.val();
-        // this.usrId = user.uid
-        console.log("loaded current user: ", this.usrData);
         observer.next(dataSnap.val())
       });
     }) 
+
  }
+
 
  setUserAlerts(){
    this.afData.database.ref('alerts/' + this.usrId).on('value',dataSnap =>{
@@ -57,7 +56,15 @@ getHasRona(){
   return this.usrData.hasCorona
 }
 getUserInfo(){
-	return this.usrData;
+   return this.$usrData.subscribe({
+    next(position){
+      return position
+    },
+    error(msg){
+      console.log("could not get userInfo")
+      return null
+    }
+  })
 }
 
 getUserId(){
