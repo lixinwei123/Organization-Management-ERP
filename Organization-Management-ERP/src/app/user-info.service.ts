@@ -33,7 +33,9 @@ public $organizationDetails: Observable<any>
  setOrganizationDetails(id){
    this.$organizationDetails = new Observable((observer) =>{
     this.afData.database.ref("organizations").child(id).on('value',dataSnap =>{
-      observer.next(dataSnap.val())
+      let data = dataSnap.val()
+      data["id"] = id
+      observer.next(data)
     })
    })
  }

@@ -1,7 +1,8 @@
 import { Component, NgZone, OnInit } from '@angular/core';
-import { PickerController } from '@ionic/angular';
+import { AlertController, PickerController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
 import { UserInfoService } from '../user-info.service';
+import {AngularFireDatabase} from "@angular/fire/database";
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -9,7 +10,9 @@ import { UserInfoService } from '../user-info.service';
 })
 export class Tab4Page implements OnInit {
 
-  constructor(public pickerCtrl:PickerController, public ngZone: NgZone, private uInfo: UserInfoService) { }
+  constructor(public pickerCtrl:PickerController, public ngZone: NgZone, private uInfo: UserInfoService,
+    private afData: AngularFireDatabase,
+    public alertCtrl: AlertController) { }
   priority: any;
   priorityText: any = "press to choose priority"
   isDirectAssignee: boolean;
@@ -18,6 +21,8 @@ export class Tab4Page implements OnInit {
   $userSearch: any;
   organizationMembers: any = [];
   selectedAssignee:any;
+  taskName: string;
+  deadline: string;
   ngOnInit() {
     this.loadOrganizationDetails()
   }
@@ -106,6 +111,52 @@ export class Tab4Page implements OnInit {
     this.$userSearch = ""
   }
 
-  assignTask(){}
+  assignTask(){
+    let taskDetail;
+    if(this.isDirectAssignee){
+      taskDetail = {
+        taskName: this.taskName,
+        deadline: this.deadline,
+        priority: this.priorityText,
+        isDirectAssignee: this.isDirectAssignee,
+        firstname: this.selectedAssignee.firstname,
+        lastname: this.selectedAssignee.lastname,
+        userid: this.selectedAssignee.id,
+        isCompleted: false,
+        isAccepted: false
+      }
+    }else{
+        taskDetail = {
+        taskName: this.taskName,
+        deadline: this.deadline,
+        priority: this.priorityText,
+        isDirectAssignee: this.isDirectAssignee
+      }
+    }
+    console.log(taskDetail)
+    this.afData.database.ref("organizations").child(this.organizationDetails.id).child("tasks").push(taskDetail).then((val) =>{
+      let key = val.key
+      let obj = {
+        taskName: this.taskName,
+        deadline: this.deadline,
+        priority: this.priority
+      }
+      this.afData.database.ref("users").child(this.selectedAssignee.id).child("tasks").child(key).update(obj).then((success) =>{
+        this.alert("success!","Task has been successfully created")
+      })
+    })
+
+  }
+
+  async alert(title,content) {
+    const alert = await this.alertCtrl.create({
+      // cssClass: 'my-custom-class',
+      header: title,
+      // subHeader: 'Subtitle',
+      message: content,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
 
 }
