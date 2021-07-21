@@ -12,7 +12,7 @@
 
       <ion-item class = "dark-background">
       <ion-label position = "floating">Deadline</ion-label>
-      <ion-datetime displayFormat = "MMM DD, YYYY, HH:mm" placeholder= "Deadline" display-timezone="utc" [(ngModel)] = "deadline" ></ion-datetime>
+      <ion-datetime displayFormat = "MMM DD, YYYY, HH:mm" placeholder= "Deadline" display-timezone="utc" [(ngModel)] = "deadline" min = "2021-07-23" max = "2024-01-01" ></ion-datetime>
       </ion-item>
 
       <ion-item class = "dark-background" (click)="presentPrioritySelector()">
