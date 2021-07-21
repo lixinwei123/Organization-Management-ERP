@@ -8,13 +8,14 @@ import { UserInfoService } from '../user-info.service';
 export class Tab2Page {
   usrData : any;
   organizationDetails: any;
+  currentTab: any;
   tasks: any = {
     open:[],
     accepted: [],
     declined: []
   }
+  mainTasks: any = []
   constructor(public uInfo: UserInfoService, public ngZone: NgZone) {
-
   }
 
 
@@ -54,6 +55,11 @@ export class Tab2Page {
           for(let key in tasks){
             let obj = tasks[key]
             obj["key"] = key
+            let deadline = obj["deadline"] .split("-")
+            deadline = deadline[0] + "," + deadline[1] + "/" + deadline[2]
+            deadline = deadline.split("T")
+            deadline = deadline[0] + "," + deadline[1].split(":")[0] + ":" + deadline[1].split(":")[1]
+            obj["deadline"] = deadline
             taskArr.push(obj)
           }
           let open = taskArr.filter((task) =>{
@@ -67,8 +73,12 @@ export class Tab2Page {
           let declined = taskArr.filter((task) =>{
             return task["isAccepted"] == false
           })
+          global.tasks["open"] = open 
+          global.tasks["accepted"] = accepted 
+          global.tasks["declined"] = declined 
           console.log("open tasks",accepted)
           console.log("organization details",global.organizationDetails)
+          global.mainTasks = global.tasks[global.currentTab]
         }
       })
     }
@@ -76,12 +86,14 @@ export class Tab2Page {
 
 
   ngOnInit(){
+    this.currentTab = "open"
     this.loadUserInfo()
     this.loadOrganizationDetails()
   }
 
   segmentChanged($event){
     let val = $event["detail"]["value"]
-    console.log()
+    this.currentTab = val
+    this.mainTasks = this.tasks[this.currentTab]
   }
 }
