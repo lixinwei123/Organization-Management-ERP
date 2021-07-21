@@ -15,16 +15,19 @@ export class Tab5Page implements OnInit {
   usrData: any
   constructor(private afAuth:AngularFireAuth,private afData:AngularFireDatabase,public router:Router, public uInfo: UserInfoService) { }
 
-  status=true;
+  status=false;
   
   onChange(){
     if(this.status){
       this.buttonOn();
+      // this.status = false
     }
     else{
       this.buttonOff()
+      // this.status = true
     }
   }
+
   buttonOn() { 
     console.log("the button is on")
   }
