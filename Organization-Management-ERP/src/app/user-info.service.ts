@@ -23,6 +23,7 @@ public $organizationDetails: Observable<any>
      this.$usrData = new Observable((observer) =>{
       this.afData.database.ref('users/' + user.uid).on('value',dataSnap =>{
         this.usrData = dataSnap.val()
+        this.usrData["id"] = user.uid
         this.setOrganizationDetails(this.usrData["organizationId"])
         observer.next(this.usrData)
       });
