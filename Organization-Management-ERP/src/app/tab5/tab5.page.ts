@@ -11,12 +11,31 @@ import { UserInfoService } from '../user-info.service';
   styleUrls: ['./tab5.page.scss'],
 })
 export class Tab5Page implements OnInit {
-
+  toggle: boolean = false
   usrData: any
   constructor(private afAuth:AngularFireAuth,private afData:AngularFireDatabase,public router:Router, public uInfo: UserInfoService) { }
 
+  status=true;
   
-
+  onChange(){
+    if(this.status){
+      this.buttonOn();
+    }
+    else{
+      this.buttonOff()
+    }
+  }
+  buttonOn() { 
+    console.log("the button is on")
+  }
+  buttonOff() {
+    console.log("the button is off")
+      
+  }
+  // buttonOn(){
+  //    ("apple")
+  //   console.log("the button is on")
+  // }
   
   loadUserInfo(){
     let global = this;

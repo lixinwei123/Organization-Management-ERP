@@ -39,6 +39,17 @@
         </ion-item>
         
       </ion-list>
+
+      <ion-item>
+        <ion-label>Apple</ion-label>
+        <ion-toggle slot="start" name="apple" color="secondary" checked (ionChange)="onChange()" [(ngModel)]="status"></ion-toggle>
+      </ion-item>
+
+      <div *ngIf = "status">
+        <ion-item lines="none" class = "searchbar-container">
+            <ion-input id="search_input" type="text" (ionChange)="searchUsers($event)" placeholder= "Search" ></ion-input>
+        </ion-item>
+      </div>
     </div>
   <!-- </ion-card> -->
 </ion-content>
