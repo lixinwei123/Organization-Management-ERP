@@ -6,6 +6,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
- <p>{{usrData.firstname}}</p>
+<ion-content [fullscreen]="true" >
+<ion-segment (ionChange)="segmentChanged($event)" value = "open">
+  <ion-segment-button value="open">
+    <ion-label>Open Tasks</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="accepted">
+    <ion-label>Accepted Tasks</ion-label>
+  </ion-segment-button>
+    <ion-segment-button value="declined">
+    <ion-label>Declined Tasks</ion-label>
+  </ion-segment-button>
+</ion-segment>
 </ion-content>

@@ -3,6 +3,7 @@ import { AlertController, PickerController } from '@ionic/angular';
 import { PickerOptions } from '@ionic/core';
 import { UserInfoService } from '../user-info.service';
 import {AngularFireDatabase} from "@angular/fire/database";
+import { NullTemplateVisitor } from '@angular/compiler';
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -122,8 +123,8 @@ export class Tab4Page implements OnInit {
         firstname: this.selectedAssignee.firstname,
         lastname: this.selectedAssignee.lastname,
         userid: this.selectedAssignee.id,
-        isCompleted: false,
-        isAccepted: false
+        // isAccepted: null,
+        // isDeclined: false
       }
     }else{
         taskDetail = {
@@ -139,10 +140,16 @@ export class Tab4Page implements OnInit {
       let obj = {
         taskName: this.taskName,
         deadline: this.deadline,
-        priority: this.priority
+        priority: this.priority,
       }
       this.afData.database.ref("users").child(this.selectedAssignee.id).child("tasks").child(key).update(obj).then((success) =>{
         this.alert("success!","Task has been successfully created")
+        this.deadline = null 
+        this.taskName = null 
+        this.priorityText = "press to choose priority"
+        this.isDirectAssignee = false 
+        this.selectedAssignee = null
+        this.organizationMembers = []
       })
     })
 

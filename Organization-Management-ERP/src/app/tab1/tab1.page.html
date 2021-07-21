@@ -8,8 +8,9 @@
 
 <ion-content [fullscreen]="true">
   <ion-card class = "card"  *ngFor = "let task of tasks">
-    <ion-card-header [class] ="task.style_class" >
-      <ion-card-subtitle >
+    <ion-card-header  >
+    <ion-card-title></ion-card-title>
+      <ion-card-subtitle [class] ="task.style_class">
         <ion-grid>
           <ion-row>
             <ion-col *ngIf = "task.priority == 1" size = "8">
@@ -21,11 +22,23 @@
             <ion-col *ngIf = "task.priority == 3" size = "8">
               High Priority
             </ion-col>
+            <ion-col>deadline: {{task.deadline}}</ion-col>
           </ion-row>
         </ion-grid>
     </ion-card-subtitle>
     </ion-card-header>
     <ion-card-content class = "card-content">
+  {{task.taskName}}  
+  <ion-grid class ="accept-decline" *ngIf = "task.isAccepted == undefined">
+   <ion-row>
+      <ion-col > <ion-button style = "color:#45e437" (click) = "acceptJob(task)"> Accept <ion-icon name="checkmark-outline" ></ion-icon></ion-button> </ion-col>
+      <ion-col  > <ion-button  style = "color:#eb445a" (click) = "declineJob(task)">Decline <ion-icon name="close-outline"></ion-icon> </ion-button></ion-col>
+   </ion-row>
+   </ion-grid>
+  <div style ="margin-top:1rem">
+   <p *ngIf = "task.isAccepted != undefined && task.isAccepted" style = "color:#45e437"> Accepted</p>
+     <p *ngIf = "task.isAccepted != undefined && !task.isAccepted" style = "color:#eb445a"> Declined</p>
+  </div>
     </ion-card-content>
   </ion-card>
 

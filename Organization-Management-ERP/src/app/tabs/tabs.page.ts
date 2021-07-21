@@ -1,5 +1,6 @@
 import { Component, NgZone } from '@angular/core';
 import { UserInfoService } from '../user-info.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
@@ -8,7 +9,7 @@ import { UserInfoService } from '../user-info.service';
 export class TabsPage {
   usrData: any
   isManager: boolean
-  constructor(private uInfo: UserInfoService, public ngZone: NgZone) {
+  constructor(private uInfo: UserInfoService, public ngZone: NgZone,public router: Router) {
     this.loadUserInfo()
   }
 
@@ -25,6 +26,9 @@ export class TabsPage {
         next(data){
           global.ngZone.run(() =>{
             global.isManager = data.isManager
+            if(global.isManager){
+              global.router.navigateByUrl("/tabs/tab2")
+            }
           })
   
         }
