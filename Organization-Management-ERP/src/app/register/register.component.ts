@@ -115,13 +115,13 @@ export class RegisterComponent implements OnInit {
      let organizationDetails = {"organizationName":this.organizationName}
       this.afData.database.ref("organizations").push(organizationDetails).then((organId) =>{
         usrInfo["organizationId"] = organId.key;
-        this.afData.database.ref("organizations").child(organId.key).child("members").child(uid).update({"tags":""})
+        this.afData.database.ref("organizations").child(organId.key).child("members").child(uid).update({"tags":[],"firstname":usrInfo.firstname,"lastname":usrInfo.lastname})
         this.afData.database.ref('users').child(uid).update(usrInfo).then(() =>{
           this.closeModal()
          });
       })
    }else{
-     this.afData.database.ref("organizations").child(this.organizationId).child("members").child(uid).update({"tags":""})
+     this.afData.database.ref("organizations").child(this.organizationId).child("members").child(uid).update({"tags":[],"firstname":usrInfo.firstname,"lastname":usrInfo.lastname})
       usrInfo["organizationId"] = this.organizationId
       this.afData.database.ref('users').child(uid).update(usrInfo).then( success =>{
         this.closeModal()

@@ -6,12 +6,34 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content [fullscreen]="true" >
+<ion-segment (ionChange)="segmentChanged($event)" value = "open">
+  <ion-segment-button value="open">
+    <ion-label>Open Tasks</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="accepted">
+    <ion-label>Accepted Tasks</ion-label>
+  </ion-segment-button>
+    <ion-segment-button value="declined">
+    <ion-label>Declined Tasks</ion-label>
+  </ion-segment-button>
+</ion-segment>
+   <ion-list >
+    <ion-item *ngFor="let task of mainTasks" tappable class ="dark-background">
+       <ion-label text-wrap> 
+          <h2>{{task.taskName}}</h2>
+          <h3 *ngIf = "task.isAccepted">accepted by: {{task.firstname}}  {{task.lastname}} </h3>
+          <h3 *ngIf = "task.isAccepted == false">declined by: {{task.firstname}}  {{task.lastname}} </h3>
+          <ion-row>
+            <ion-col>
+              <h3 > Deadline: {{task.deadline}}  </h3>
+            </ion-col>
+            <ion-col>
+              <h3> priority: {{task.priority}}</h3>
+            </ion-col>
+          </ion-row>
+        
+       </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

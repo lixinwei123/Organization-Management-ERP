@@ -18,8 +18,7 @@ export class AppComponent {
       this.afAuth.onAuthStateChanged(user =>{
         if(user){
           this.uInfo.setUserInfo(user)
-          this.uInfo.setUserAlerts()
-          this.loadUserInfo()
+          // this.loadUserInfo()
         }else{
           this.router.navigateByUrl('/login')
         }
@@ -27,16 +26,16 @@ export class AppComponent {
     })
   }
 
-  loadUserInfo(){
-    let usrInfo = this.uInfo.getUserInfo();
-     if (usrInfo == undefined ){
-      setTimeout(() => {
-        this.loadUserInfo();
-      },1000);
-    }
+//   loadUserInfo(){
+//     let usrInfo = this.uInfo.getUserInfo();
+//      if (usrInfo == undefined ){
+//       setTimeout(() => {
+//         this.loadUserInfo();
+//       },1000);
+//     }
 
-     else{
-        this.router.navigateByUrl('/tabs')
-  }
-}
+//      else{
+//         this.router.navigateByUrl('/tabs')
+//   }
+// }
 }
