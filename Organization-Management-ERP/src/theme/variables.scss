@@ -2,17 +2,44 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+/** light theme**/
 :root {
+  --ion-background-color: #e2e6e7;
+  --ion-background-color-rgb: 226,230,231;
+
+  --ion-text-color: #000000;
+  --ion-text-color-rgb: 0,0,0;
+
+  --ion-color-step-50: #d7dbdb;
+  --ion-color-step-100: #cbcfd0;
+  --ion-color-step-150: #c0c4c4;
+  --ion-color-step-200: #b5b8b9;
+  --ion-color-step-250: #aaadad;
+  --ion-color-step-300: #9ea1a2;
+  --ion-color-step-350: #939696;
+  --ion-color-step-400: #888a8b;
+  --ion-color-step-450: #7c7f7f;
+  --ion-color-step-500: #717374;
+  --ion-color-step-550: #666768;
+  --ion-color-step-600: #5a5c5c;
+  --ion-color-step-650: #4f5151;
+  --ion-color-step-700: #444545;
+  --ion-color-step-750: #393a3a;
+  --ion-color-step-800: #2d2e2e;
+  --ion-color-step-850: #222323;
+  --ion-color-step-900: #171717;
+  --ion-color-step-950: #0b0c0c;
+  
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-shade: #e2e6e7;
   --ion-color-primary-tint: #4c8dff;
 
   /** secondary **/
-  --ion-color-secondary: #45e437;
+  --ion-color-secondary: #5a7da0;;
   --ion-color-secondary-rgb: 61, 194, 255;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
@@ -74,6 +101,21 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  /**SAP Light Theme Color Template**/
+  --sap-navigation-background: #354a5f;
+  --sap-body-background: #e2e6e7;
+  --sap-header-font-size: 1rem;
+  --sap-font-weight: bold;
+  --sap-font-color: #fffefa;
+  --sap-font-family:"72","72full",Arial,Helvetica,sans-serif;
+  --sap-font-color-dark:#5a7da0;
+  --sap-border-color:#cfcfcf;
+  --sap-content-background: #fff;
+  --sap-content-font-color: #32363a;
+  --sap-accent-green:#1A9898;
+  --sap-accent-red: #C14646;
+  --sap-accent-navy:#678BC7;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -87,10 +129,10 @@
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
     --ion-color-primary-contrast-rgb: 255,255,255;
-    --ion-color-primary-shade: #3a7be0;
+    --ion-color-primary-shade: #e2e6e7;
     --ion-color-primary-tint: #5598ff;
 
-    --ion-color-secondary: #50c8ff;
+    --ion-color-secondary: #5a7da0;
     --ion-color-secondary-rgb: 80,200,255;
     --ion-color-secondary-contrast: #ffffff;
     --ion-color-secondary-contrast-rgb: 255,255,255;
@@ -145,6 +187,17 @@
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
+
+      /**SAP Light Theme Color Template**/
+    --sap-navigation-background: #354a5f;
+    --sap-body-background: #e2e6e7;
+    --sap-header-font-size: 1rem;
+    --sap-font-weight: bold;
+    --sap-font-color: #fffefa;
+    --sap-font-family:"72","72full",Arial,Helvetica,sans-serif;
+    --sap-font-color-dark:#5a7da0;
+    --sap-border-color:#cfcfcf;
+
   }
 
   /*
@@ -182,6 +235,16 @@
     --ion-item-background: #000000;
 
     --ion-card-background: #1c1c1d;
+      /**SAP Light Theme Color Template**/
+    --sap-navigation-background: #354a5f;
+    --sap-body-background: #e2e6e7;
+    --sap-header-font-size: 1rem;
+    --sap-font-weight: bold;
+    --sap-font-color: #fffefa;
+    --sap-font-family:"72","72full",Arial,Helvetica,sans-serif;
+    --sap-font-color-dark:#5a7da0;
+    --sap-border-color:#cfcfcf;
+
   }
 
   .ios ion-modal {
@@ -232,5 +295,16 @@
     --ion-tab-bar-background: #1f1f1f;
 
     --ion-card-background: #1e1e1e;
+      /**SAP Light Theme Color Template**/
+    --sap-navigation-background: #354a5f;
+    --sap-body-background: #e2e6e7;
+    --sap-header-font-size: 1rem;
+    --sap-font-weight: bold;
+    --sap-font-color: #fffefa;
+    --sap-font-family:"72","72full",Arial,Helvetica,sans-serif;
+    --sap-font-color-dark:#5a7da0;
+    --sap-border-color:#cfcfcf;
   }
+
+  
 }

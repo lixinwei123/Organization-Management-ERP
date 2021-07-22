@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Tasks Status Report
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -19,16 +19,17 @@
   </ion-segment-button>
 </ion-segment>
    <ion-list >
-    <ion-item *ngFor="let task of mainTasks" tappable class ="dark-background">
+    <ion-item *ngFor="let task of mainTasks" tappable class ="background">
        <ion-label text-wrap> 
           <h2>{{task.taskName}}</h2>
+          <h3 *ngIf = "task.isDirectAssignee && task.isAccepted == undefined" style = "margin-top: 0.5rem;">Designated to: {{task.firstname}}  {{task.lastname}} </h3>
           <h3 *ngIf = "task.isAccepted">accepted by: {{task.firstname}}  {{task.lastname}} </h3>
           <h3 *ngIf = "task.isAccepted == false">declined by: {{task.firstname}}  {{task.lastname}} </h3>
           <ion-row>
-            <ion-col>
+            <ion-col size = "7">
               <h3 > Deadline: {{task.deadline}}  </h3>
             </ion-col>
-            <ion-col>
+            <ion-col size = "5">
               <h3> priority: {{task.priority}}</h3>
             </ion-col>
           </ion-row>
