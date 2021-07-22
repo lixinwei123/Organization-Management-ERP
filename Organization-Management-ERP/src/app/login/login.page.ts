@@ -3,7 +3,7 @@ import { AlertController, MenuController, ModalController } from '@ionic/angular
 import {RegisterComponent} from '../register/register.component';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { NavigationExtras, Router } from '@angular/router';
-import {UserInfoService} from "../user-info.service"
+import { UserInfoService } from '../user-info.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
