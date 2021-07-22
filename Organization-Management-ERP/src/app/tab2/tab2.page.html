@@ -22,9 +22,10 @@
     <ion-item *ngFor="let task of mainTasks" tappable class ="background">
        <ion-label text-wrap> 
           <h2>{{task.taskName}}</h2>
-          <h3 *ngIf = "task.isDirectAssignee && task.isAccepted == undefined" style = "margin-top: 0.5rem;">Designated to: {{task.firstname}}  {{task.lastname}} </h3>
-          <h3 *ngIf = "task.isAccepted">accepted by: {{task.firstname}}  {{task.lastname}} </h3>
+          <h3 *ngIf = "task.isDirectAssignee && task.isAccepted == undefined" >Designated to: {{task.firstname}}  {{task.lastname}} </h3>
+          <h3 *ngIf = "task.isAccepted" >accepted by: {{task.firstname}}  {{task.lastname}} </h3>
           <h3 *ngIf = "task.isAccepted == false">declined by: {{task.firstname}}  {{task.lastname}} </h3>
+          <p *ngIf = "task.isAccepted == false && task.declinedReason"> {{task.declinedReason}}</p>
           <ion-row>
             <ion-col size = "7">
               <h3 > Deadline: {{task.deadline}}  </h3>

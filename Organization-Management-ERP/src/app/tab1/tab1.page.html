@@ -13,16 +13,16 @@
       <ion-card-subtitle [class] ="task.style_class">
         <ion-grid>
           <ion-row>
-            <ion-col *ngIf = "task.priority == 1" size = "8">
+            <ion-col *ngIf = "task.priority == 1" size = "4.7">
               Low Priority
             </ion-col>
-            <ion-col *ngIf = "task.priority == 2" size = "8">
+            <ion-col *ngIf = "task.priority == 2" size = "4.7">
               Medium Priority
             </ion-col>
-            <ion-col *ngIf = "task.priority == 3" size = "8">
+            <ion-col *ngIf = "task.priority == 3" size = "4.7">
               High Priority
             </ion-col>
-            <ion-col>deadline: {{task.deadline}}</ion-col>
+            <ion-col size = "7.3" style = "color:black !important">deadline: {{task.deadline}}</ion-col>
           </ion-row>
         </ion-grid>
     </ion-card-subtitle>
@@ -31,13 +31,13 @@
   {{task.taskName}}  
   <ion-grid class ="accept-decline" *ngIf = "task.isAccepted == undefined">
    <ion-row>
-      <ion-col > <ion-button style = "color:#45e437" (click) = "acceptJob(task)"> Accept <ion-icon name="checkmark-outline" ></ion-icon></ion-button> </ion-col>
-      <ion-col  > <ion-button  style = "color:#eb445a" (click) = "declineJob(task)">Decline <ion-icon name="close-outline"></ion-icon> </ion-button></ion-col>
+      <ion-col class = "col-center" > <ion-button color = "secondary" (click) = "acceptJob(task)" > Accept <ion-icon name="checkmark-outline" ></ion-icon></ion-button> </ion-col>
+      <ion-col class = "col-center"  > <ion-button color = "tertiary"  (click) = "declineJob(task)"  >Decline <ion-icon name="close-outline"></ion-icon> </ion-button></ion-col>
    </ion-row>
    </ion-grid>
   <div style ="margin-top:1rem">
-   <p *ngIf = "task.isAccepted != undefined && task.isAccepted" style = "color:#45e437"> Accepted</p>
-     <p *ngIf = "task.isAccepted != undefined && !task.isAccepted" style = "color:#eb445a"> Declined</p>
+   <p *ngIf = "task.isAccepted != undefined && task.isAccepted" class = "accept-but"> Accepted</p>
+     <p *ngIf = "task.isAccepted != undefined && !task.isAccepted"  class = "decline-but" > Declined</p>
   </div>
     </ion-card-content>
   </ion-card>
