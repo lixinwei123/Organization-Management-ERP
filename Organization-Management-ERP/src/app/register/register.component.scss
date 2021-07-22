@@ -19,7 +19,7 @@ float:right;
 }
 .input-information{
 ion-item{
-    --background: #3c4042;
+    --background: var(--sap-content-background);
 }
 ion-input{
     color:black;
@@ -34,9 +34,11 @@ button{
 
 }
 
+ion-content{
+    --background:var(--sap-body-background) !important;
+}
 .dark-background{
-    --background: black;
-    color:white
+    color:black
 }
 #registration-card{
     border: none;
@@ -44,5 +46,5 @@ button{
     margin: 0;
     padding-bottom: 1rem;
     margin-top: 2rem;
-    --background: #3c4042;
+    --background: var(--sap-content-background);
 }

@@ -1,13 +1,14 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Open Tasks
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card class = "card"  *ngFor = "let task of tasks">
+ <div *ngFor = "let task of tasks" >
+  <ion-card class = "card"  *ngIf = "task.isAccepted == undefined">
     <ion-card-header  >
     <ion-card-title></ion-card-title>
       <ion-card-subtitle [class] ="task.style_class">
@@ -29,7 +30,7 @@
     </ion-card-header>
     <ion-card-content class = "card-content">
   {{task.taskName}}  
-  <ion-grid class ="accept-decline" *ngIf = "task.isAccepted == undefined">
+  <ion-grid class ="accept-decline">
    <ion-row>
       <ion-col class = "col-center" > <ion-button color = "secondary" (click) = "acceptJob(task)" > Accept <ion-icon name="checkmark-outline" ></ion-icon></ion-button> </ion-col>
       <ion-col class = "col-center"  > <ion-button color = "tertiary"  (click) = "declineJob(task)"  >Decline <ion-icon name="close-outline"></ion-icon> </ion-button></ion-col>
@@ -41,10 +42,11 @@
   </div>
     </ion-card-content>
   </ion-card>
-
+</div>
   <ion-card class = "card"  *ngIf = "tasks.length ==0">
     <ion-card-header class ="card-header">
       <ion-card-subtitle > You have no tasks at this moment!</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
+
 </ion-content>
