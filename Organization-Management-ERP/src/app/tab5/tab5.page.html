@@ -1,9 +1,9 @@
 <ion-header >
-  <ion-toolbar class="dark-background">
+  <ion-toolbar >
       <ion-title>
       Employee Profile
     </ion-title>
-     <ion-button icon-only (click) = "logOut()">
+     <ion-button icon-only (click) = "logOut()" style = "--background:transparent">
       <ion-icon name="log-out-outline" ></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -11,29 +11,18 @@
  
 <ion-content class ="dark-background">
     <div class = "dark-background"> 
-
-
-      <!-- <ion-button>
-        <ion-label>Edit Mode</ion-label>
-        <ion-icon slot="start" name="edit mode" [(ngModel)]="status" (click) = onChange()></ion-icon>
-      </ion-button> -->
-
       <div *ngIf="status; else elseBlock">
-        <ion-item lines="none" class = "searchbar-container">
-          <ion-input [(ngModel)]="firstname" id="search_input" type="text" (ionChange)="searchUsers($event)" placeholder= "{{usrData.firstname}}" ></ion-input>
+        <ion-item lines="none" class="input-information">
+          <ion-input [(ngModel)]="firstname" type="text" placeholder= "{{usrData.firstname}}" ></ion-input>
         </ion-item>
-        <ion-item lines="none" class = "searchbar-container">
-          <ion-input [(ngModel)]="lastname" id="search_input" type="text" (ionChange)="searchUsers($event)" placeholder= "{{usrData.lastname}}" ></ion-input>
+        <ion-item lines="none" class="input-information">
+          <ion-input [(ngModel)]="lastname" type="text" placeholder= "{{usrData.lastname}}" ></ion-input>
         </ion-item>
-        <!-- <ion-item lines="none" class = "searchbar-container">
-          <ion-input [(ngModel)]="phonenumber" id="search_input" type="text" (ionChange)="searchUsers($event)" placeholder= "{{usrData.phonenumber}}" ></ion-input>
-        </ion-item> -->
-        <!-- <ion-item lines="none" class = "searchbar-container">
-          <ion-input [(ngModel)]="email" id="search_input" type="text" (ionChange)="searchUsers($event)" placeholder= "{{usrData.email}}" ></ion-input>
-        </ion-item> -->
-
-
-        <ion-button [(ngModel)]="status" (click) = "confirmEdit()">
+        <ion-item lines="none" class="input-information">
+          <ion-input *ngIf = "usrData.phoneNumber" [(ngModel)]="phoneNumber" type="text" placeholder= "{{usrData.phoneNumber}}" ></ion-input>
+          <ion-input *ngIf = "usrData.phoneNumber == undefined" [(ngModel)]="phoneNumber" type="text" placeholder= "enter phone number" ></ion-input>
+        </ion-item>
+        <ion-button [(ngModel)]="status" (click) = "confirmEdit()" color = "secondary"> 
           confirm edit
         </ion-button>      
       </div>
@@ -57,14 +46,14 @@
           
           <ion-item class="input-information">
             <ion-label>
-              <h2>Email Address</h2>
-              <h3>{{usrData.email}}</h3>
+              <h2>Phone Number</h2>
+              <h3 ><span *ngIf = "!usrData.phoneNumber">Not Yet Set</span>{{usrData.phoneNumber}}</h3>
             </ion-label>
           </ion-item>
           
         </ion-list>
       </ng-template>
-      <ion-item>
+      <ion-item class = "input-information">
         <ion-label>Edit Mode</ion-label>
         <ion-toggle slot="start" name="editMode" color="secondary" (ionChange)="onChange()" [(ngModel)]="status"></ion-toggle>
       </ion-item>

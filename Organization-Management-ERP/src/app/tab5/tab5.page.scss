@@ -3,7 +3,9 @@
     color:white
 }
 
-
+ion-content{
+    --background:var(--sap-body-background) !important;
+}
 ion-toolbar{
     --background:var(--sap-navigation-background);
     color:white;
@@ -13,28 +15,12 @@ ion-toolbar{
     }
 }
 .input-information{
-// ion-item{
-    // border: none;
-    // margin: none;
-    // margin: 0;
-    // padding-bottom: 1rem;
-    // margin-top: 2rem;
-    color: white;
-    --background: #3c4042;
+    color: black;
+    --background:var(--sap-content-background) 
 }
 .gray-background{
     --background: #3c4042;
 }
 #input-information{
-    // border: none;
-    // margin: none;
-    // margin: 0;
-    // padding-bottom: 1rem;
-    // margin-top: 2rem;
     --background: #3c4042;
 }
-// #shadow-root{
-//     color: red;
-//     --background: red;
-// }
-// }
