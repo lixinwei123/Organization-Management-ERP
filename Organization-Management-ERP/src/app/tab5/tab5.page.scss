@@ -1,20 +1,30 @@
-.center-avatar{
-    margin: auto;
-}
-.dark-background-centered{
-    text-align: center;
-    --background: black;
-    color:white
-}
 .dark-background{
     --background: black;
     color:white
 }
+
+ion-content{
+    --background:var(--sap-body-background) !important;
+}
+ion-toolbar{
+    --background:var(--sap-navigation-background);
+    color:white;
+    ion-label{
+        font-weight: var(--sap-font-weight);
+        font-size: var(--sap-header-font-size);
+    }
+}
 .input-information{
-    color: white;
-    --background: #3c4042;
+    color: black;
+    --background:var(--sap-content-background) 
 }
 .gray-background{
     --background: #3c4042;
 }
+#input-information{
+    --background: #3c4042;
+}
 
+#edit-but{
+    margin: 0.5rem 0 0.5rem 0
+}

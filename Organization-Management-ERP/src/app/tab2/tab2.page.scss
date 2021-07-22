@@ -1,8 +1,37 @@
-.dark-background{
-    --background: #3c4042 !important;
-    color:white
+.background{
+    --background: var(--sap-content-background);
+    color: var(--sap-content-font-color);
+    h2{
+        font-size: 1.1rem;
+    }
+    h3{
+        font-size:0.8rem;
+        margin-top:0.5rem;
+    }
 }
+
 ion-toolbar{
-    --background:#4e4b4b;
-    color:White;
+    --background:var(--sap-navigation-background);
+    color:white;
+    ion-label{
+        font-weight: var(--sap-font-weight);
+        font-size: var(--sap-header-font-size);
+    }
+}
+
+ion-segment-button {
+    --background-checked: var(--sap-font-color-dark);
+    --color-checked: white;
+    --indicator-color : transparent!important; /* this solution */
+    --background:white;
+    --color:black
+  }
+
+ion-content{
+    --background:var(--sap-body-background) !important;
+}
+
+body {
+    font-family: var(--sap-font-family);
+
 }

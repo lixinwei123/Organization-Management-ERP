@@ -1,26 +1,31 @@
-<ion-content class ="dark-background">
-	
-  <ion-button  icon-only  class = "close-button" ><ion-icon name = "close" color = "secondary"></ion-icon></ion-button>
-    <h1 style = "color:white !important" >Create New Task</h1>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Task Assign
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class ="background">
     <ion-card id = "registration-card">
     <div class = "input-information">
 
-      <ion-item class = "dark-background">
-      <ion-label position = "floating">Task Name</ion-label>
+      <ion-item class = "background">
+      <ion-label position = "floating" >Task Name</ion-label>
       <ion-input type="text" [(ngModel)] = "taskName"></ion-input>
       </ion-item>
 
-      <ion-item class = "dark-background">
+      <ion-item class = "background">
       <ion-label position = "floating">Deadline</ion-label>
       <ion-datetime displayFormat = "MMM DD, YYYY, HH:mm" placeholder= "Deadline" display-timezone="utc" [(ngModel)] = "deadline" min = "2021-07-23" max = "2024-01-01" ></ion-datetime>
       </ion-item>
 
-      <ion-item class = "dark-background" (click)="presentPrioritySelector()">
+      <ion-item class = "background" (click)="presentPrioritySelector()">
       <ion-label position = "floating" >priority</ion-label>
-      <ion-input type="text" [(ngModel)] = "priorityText" style="color:white"></ion-input>
+      <ion-input type="text" [(ngModel)] = "priorityText" ></ion-input>
       </ion-item >
 
-      <ion-item class = "dark-background">
+      <ion-item class = "background">
           <ion-label>Direct Assignee</ion-label>
           <ion-checkbox [(ngModel)] = "isDirectAssignee"></ion-checkbox>
       </ion-item >
@@ -31,8 +36,8 @@
     </ion-item>
 
      <ion-list class = "search-list" *ngIf = "$userSearch && $userSearch.length > 0">
-    <ion-item *ngFor="let user of organizationMembers" tappable   (click)="chooseUser(user)" class ="dark-background">
-      <ion-item class ="dark-background">
+    <ion-item *ngFor="let user of organizationMembers" tappable   (click)="chooseUser(user)" class ="background">
+      <ion-item class ="background">
         <ion-label>  
           <h2>{{ user.firstname }} {{ user.lastname}} </h2>
           <h3>    {{ user.id}}</h3>
@@ -41,7 +46,7 @@
     </ion-item>
   </ion-list>
 
-    <ion-item class ="dark-background" *ngIf = "selectedAssignee">
+    <ion-item class ="background" *ngIf = "selectedAssignee">
         <ion-label>  
           <h2>Selected Assignee</h2>
           <h3>{{selectedAssignee.firstname }} {{ selectedAssignee.lastname}} </h3>
@@ -54,7 +59,7 @@
 
 
       <div class = "next-step">		
-        <ion-button color = "secondary" (click) = "assignTask()"><span style = "color:black">Assign Task</span></ion-button>
+        <ion-button color = "secondary" (click) = "assignTask()"><span style = "color:white">Assign Task</span></ion-button>
       </div>
       </ion-card>
   </ion-content>

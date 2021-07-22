@@ -18,7 +18,8 @@ float:right;
 }
 .input-information{
 ion-item{
-    --background: #3c4042;
+    --background:var(--sap-content-background) !important;
+
 }
 ion-input{
     color:black;
@@ -33,9 +34,29 @@ button{
 
 }
 
-.dark-background{
-    --background: black;
-    color:white
+ion-toolbar{
+    --background:var(--sap-navigation-background);
+    color:white;
+    ion-label{
+        font-weight: var(--sap-font-weight);
+        font-size: var(--sap-header-font-size);
+    }
+}
+
+ion-content{
+    --background:var(--sap-body-background) !important;
+}
+
+
+.background{
+    --background: var(--sap-content-background);
+    color: var(--sap-content-font-color);
+    h2{
+        font-size: 1.1rem;
+    }
+    h3{
+        font-size:0.8rem;
+    }
 }
 #registration-card{
     border: none;
@@ -43,5 +64,6 @@ button{
     margin: 0;
     padding-bottom: 1rem;
     margin-top: 2rem;
-    --background: #3c4042;
+    --background:var(--sap-content-background) !important;
+
 }
