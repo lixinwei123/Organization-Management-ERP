@@ -15,7 +15,7 @@ export class Tab4Page implements OnInit {
     private afData: AngularFireDatabase,
     public alertCtrl: AlertController) { }
   priority: any;
-  priorityText: any = "press to choose priority"
+  priorityText: any = "Press to Choose Priority"
   isDirectAssignee: boolean;
   isAssignByRole: Boolean;
   organizationDetails: any;
