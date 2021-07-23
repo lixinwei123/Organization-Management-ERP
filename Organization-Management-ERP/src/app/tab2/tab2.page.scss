@@ -6,6 +6,7 @@
     }
     h3{
         font-size:0.8rem;
+        margin-top:0.5rem;
     }
 }
 
@@ -22,7 +23,8 @@ ion-segment-button {
     --background-checked: var(--sap-font-color-dark);
     --color-checked: white;
     --indicator-color : transparent!important; /* this solution */
-    --background:white
+    --background:white;
+    --color:black
   }
 
 ion-content{
