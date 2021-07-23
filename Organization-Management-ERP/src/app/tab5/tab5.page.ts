@@ -19,6 +19,7 @@ export class Tab5Page implements OnInit {
   phoneNumber: any
   constructor(private afAuth:AngularFireAuth,private afData:AngularFireDatabase,public router:Router, public uInfo: UserInfoService) { }
 
+
   status=false;
   
   onChange(){
@@ -41,8 +42,6 @@ export class Tab5Page implements OnInit {
   }
 
   confirmEdit(){
-    // this.usrData.firstname = this.firstname
-    // console.log(this.usrData.usrId)
     this.afData.database.ref("users").child(this.usrData.id).update({"firstname":this.firstname, "lastname": this.lastname, "phoneNumber":this.phoneNumber})
     console.log(this.firstname)
     console.log(this.lastname)
