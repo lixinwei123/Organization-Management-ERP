@@ -1,11 +1,11 @@
 <ion-header >
   <ion-toolbar >
-      <ion-title>
-      Employee Profile
-    </ion-title>
      <ion-button icon-only (click) = "logOut()" style = "--background:transparent">
       <ion-icon name="log-out-outline" ></ion-icon>
     </ion-button>
+    <ion-title>
+      Employee Profile
+    </ion-title>
   </ion-toolbar>
 </ion-header>
  
@@ -22,9 +22,7 @@
           <ion-input *ngIf = "usrData.phoneNumber" [(ngModel)]="phoneNumber" type="text" placeholder= "{{usrData.phoneNumber}}" ></ion-input>
           <ion-input *ngIf = "usrData.phoneNumber == undefined" [(ngModel)]="phoneNumber" type="text" placeholder= "enter phone number" ></ion-input>
         </ion-item>
-        <ion-button [(ngModel)]="status" (click) = "confirmEdit()" color = "secondary" id = "edit-but"> 
-          confirm edit
-        </ion-button>      
+
       </div>
 
       <ng-template #elseBlock>
@@ -71,6 +69,10 @@
         <ion-label>Edit Mode</ion-label>
         <ion-toggle slot="start" name="editMode" color="secondary" (ionChange)="onChange()" [(ngModel)]="status"></ion-toggle>
       </ion-item>
-
+      <div style = "text-align:center" *ngIf = "status">
+        <ion-button [(ngModel)]="status" (click) = "confirmEdit()" color = "secondary" id = "edit-but"> 
+          confirm edit
+        </ion-button>   
+      </div>   
     </div>
 </ion-content>
