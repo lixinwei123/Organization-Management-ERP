@@ -1,11 +1,18 @@
 <ion-header >
   <ion-toolbar >
+<<<<<<< HEAD
+     <ion-button icon-only (click) = "logOut()" style = "--background:transparent">
+=======
     <ion-title>
       Employee Profile
     </ion-title>
     <ion-button icon-only (click) = "logOut()" style = "--background:#678bc7">
+>>>>>>> d670508e9091a28ef8ab4e80c1f6797c8715d9cb
       <ion-icon name="log-out-outline" ></ion-icon>
     </ion-button>
+    <ion-title>
+      Employee Profile
+    </ion-title>
   </ion-toolbar>
 </ion-header>
  
@@ -22,9 +29,13 @@
           <ion-input *ngIf = "usrData.phoneNumber" [(ngModel)]="phoneNumber" type="text" placeholder= "{{usrData.phoneNumber}}" ></ion-input>
           <ion-input *ngIf = "usrData.phoneNumber == undefined" [(ngModel)]="phoneNumber" type="text" placeholder= "Enter Phone Number" ></ion-input>
         </ion-item>
+<<<<<<< HEAD
+
+=======
         <ion-button style = "margin:1rem"[(ngModel)]="status" (click) = "confirmEdit()" color = "secondary" id = "edit-but"> 
           confirm edit
         </ion-button>      
+>>>>>>> d670508e9091a28ef8ab4e80c1f6797c8715d9cb
       </div>
 
       <ng-template #elseBlock>
@@ -53,7 +64,11 @@
 
           <ion-item class="input-information">
             <ion-label>
+<<<<<<< HEAD
+              <h2>Organization Id</h2>
+=======
               <h2>Organization ID</h2>
+>>>>>>> d670508e9091a28ef8ab4e80c1f6797c8715d9cb
               <h3>{{usrData.organizationId}}</h3>
             </ion-label>
           </ion-item>
@@ -71,6 +86,10 @@
         <ion-label>Edit Mode</ion-label>
         <ion-toggle slot="start" name="editMode" color="secondary" (ionChange)="onChange()" [(ngModel)]="status"></ion-toggle>
       </ion-item>
-
+      <div style = "text-align:center" *ngIf = "status">
+        <ion-button [(ngModel)]="status" (click) = "confirmEdit()" color = "secondary" id = "edit-but"> 
+          confirm edit
+        </ion-button>   
+      </div>   
     </div>
 </ion-content>

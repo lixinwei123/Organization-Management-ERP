@@ -10,7 +10,6 @@ export class TabsPage {
   usrData: any
   isManager: boolean
   constructor(private uInfo: UserInfoService, public ngZone: NgZone,public router: Router) {
-    this.loadUserInfo()
   }
 
 
@@ -34,5 +33,9 @@ export class TabsPage {
         }
       })
     }
+  }
+
+  ngOnInit(){
+    this.loadUserInfo()
   }
 }
