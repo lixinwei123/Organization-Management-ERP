@@ -12,7 +12,8 @@ export class Tab2Page {
   tasks: any = {
     open:[],
     accepted: [],
-    declined: []
+    declined: [],
+    completed: []
   }
   mainTasks: any = []
   constructor(public uInfo: UserInfoService, public ngZone: NgZone) {
@@ -68,14 +69,18 @@ export class Tab2Page {
             }
           })
           let accepted = taskArr.filter((task) =>{
-            return task["isAccepted"] == true
+            return task["isAccepted"] == true && !task["isCompleted"]
           })
           let declined = taskArr.filter((task) =>{
             return task["isAccepted"] == false
           })
+          let completed =  taskArr.filter((task) =>{
+            return task["isCompleted"] == true
+          })
           global.tasks["open"] = open 
           global.tasks["accepted"] = accepted 
           global.tasks["declined"] = declined 
+          global.tasks["completed"] = completed
           console.log("open tasks",accepted)
           console.log("organization details",global.organizationDetails)
           global.mainTasks = global.tasks[global.currentTab]

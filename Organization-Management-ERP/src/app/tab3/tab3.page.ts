@@ -41,6 +41,7 @@ export class Tab3Page {
                   priority: global.usrData.tasks[key]["priority"],
                   style_class: styling[global.usrData.tasks[key]["priority"] - 1],
                   isAccepted:  global.usrData.tasks[key]["isAccepted"],
+                  isCompleted: global.usrData.tasks[key]["isCompleted"],
                   index: 0
                 }
                 index += 1
@@ -56,6 +57,16 @@ export class Tab3Page {
 
   ngOnInit(){
     this.loadUserInfo()
+  }
+
+  markComplete(task){
+    console.log(this.usrData.organizationId)
+    console.log(task)
+    this.afData.database.ref("organizations").child(this.usrData.organizationId).child("tasks").child(task.key).update({"isCompleted":true}).then(success =>{
+     this.afData.database.ref("users").child(this.usrData.id).child("tasks").child(task.key).update({"isCompleted":true}).then(success=>{
+       console.log(success)
+     })
+    })
   }
 
   

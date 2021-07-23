@@ -9,27 +9,26 @@
 <ion-content [fullscreen]="true" >
 <ion-segment (ionChange)="segmentChanged($event)" value = "open">
   <ion-segment-button value="open">
-    <ion-label>Open Tasks</ion-label>
+    <ion-label>Open</ion-label>
   </ion-segment-button>
   <ion-segment-button value="accepted">
-    <ion-label>Accepted Tasks</ion-label>
+    <ion-label>Accepted</ion-label>
   </ion-segment-button>
     <ion-segment-button value="declined">
-    <ion-label>Declined Tasks</ion-label>
+    <ion-label>Declined</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="completed">
+  <ion-label>Completed</ion-label>
   </ion-segment-button>
 </ion-segment>
    <ion-list >
     <ion-item *ngFor="let task of mainTasks" tappable class ="background">
        <ion-label text-wrap> 
           <h2>{{task.taskName}}</h2>
-          <h3 *ngIf = "task.isDirectAssignee && task.isAccepted == undefined" >Designated to: {{task.firstname}}  {{task.lastname}} </h3>
-<<<<<<< HEAD
-          <h3 *ngIf = "task.isAccepted" >accepted by: {{task.firstname}}  {{task.lastname}} </h3>
-          <h3 *ngIf = "task.isAccepted == false">declined by: {{task.firstname}}  {{task.lastname}} </h3>
-=======
-          <h3 *ngIf = "task.isAccepted" >Accepted by: {{task.firstname}}  {{task.lastname}} </h3>
+          <h3 *ngIf = "(task.isDirectAssignee && task.isAccepted == undefined)" >Designated to: {{task.firstname}}  {{task.lastname}} </h3>
+          <h3 *ngIf = "task.isAccepted == true && !task.isCompleted " >Accepted by: {{task.firstname}}  {{task.lastname}} </h3>
+          <h3 *ngIf = "task.isCompleted ">Completed By: {{task.firstname}}  {{task.lastname}} </h3>
           <h3 *ngIf = "task.isAccepted == false">Declined by: {{task.firstname}}  {{task.lastname}} </h3>
->>>>>>> d670508e9091a28ef8ab4e80c1f6797c8715d9cb
           <p *ngIf = "task.isAccepted == false && task.declinedReason" style = "color: gray"> {{task.declinedReason}}</p>
           <ion-row>
             <ion-col size = "7">
