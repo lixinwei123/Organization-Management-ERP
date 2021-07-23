@@ -1,11 +1,11 @@
 ion-content{
-    --background:#3c4042;
+    --background:var(--sap-body-background) !important;
 }
 .card-header{
     border:0px groove ;
     border-bottom-right-radius: 3rem;
     border-color: #387a2d;
-    --background: #ea80fc;
+    --background: var(--sap-content-background);
     ion-card-subtitle{
         color:#202124
     }
@@ -25,28 +25,33 @@ ion-content{
     border:0px groove ;
     border-bottom-right-radius: 3rem;
     border-color: #387a2d;
-    --background: #ea80fc;
+    --background: var(--sap-content-background);
     ion-card-subtitle{
         color:#202124
     }
 }
 
 .card-content{
-    background :#202124;
-    color:white
+    background :var(--sap-content-background);
+    color:black
 }
 
 .card{
-    background:#202124;
-    padding-left:1rem;
+    background:var(--sap-content-background);
+    padding-left:0.5rem;
+    ion-card-content{
+        padding-bottom: 0rem;
+        padding-left:0.5rem;
+    }
     ion-card-title{
+        padding: 0.1rem;
         color:white;
     }
     ion-card-subtitle{
         margin:0
     }
     ion-card-header{
-        padding:0.5rem 0.5rem 0.5rem 0.5rem
+        padding:0.3rem 0.3rem 0.5rem 0.2rem
     }
     ion-grid{
         padding:0
@@ -62,26 +67,46 @@ ion-content{
 }
 
 ion-toolbar{
-    --background:#4e4b4b;
-    color:White;
+    --background:var(--sap-navigation-background);
+    color:white;
+    ion-label{
+        font-weight: var(--sap-font-weight);
+        font-size: var(--sap-header-font-size);
+    }
 }
+
 
 .low-prio{
-    color: #45e437
+    color: #5E696E
 }
 .medium-prio{
-    color: #ffc409
+    color: #E78C07
 }
 .high-prio{
-    color:#eb445a
+    color:#BB0000
 }
 
+.accept-but{
+    color:#202124;
+    float: right;
+    margin-bottom: 1rem;
+}
+.decline-but{
+color:#5E696E;
+float: right;
+margin-bottom: 1rem;
+}
 .accept-decline{
     margin-top:1rem;
-    ion-col{
-        style:"text-align:center"
+    ion-row{
+        text-align:"center" !important
     }
-    ion-button{
-        --background:transparent;
-    }
+    // ion-button{
+    //     --background:transparent;
+    // }
+}
+
+
+.col-center{
+    text-align: center;
 }
